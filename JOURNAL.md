@@ -10,13 +10,17 @@ Add end-to-end ingestion test with a sample resume fixture
 Tier 2
 
 **Selection reasoning:**
-I selected this Tier 2 issue because it is a manageable challenge that will help me learn more about the project's testing workflow. It is well-scoped, clearly described, and I believe it fits the time available for this module.
+I selected this Tier 2 issue because I have previous experience contributing to larger codebases through CodePath projects, and I want to continue improving my testing and debugging skills. The issue has a clear description, identifies the relevant files, and has a well-defined scope, making it a realistic project to complete within the module timeline.
 
 **Problem summary:**
-This issue asks for an end-to-end integration test for the resume ingestion pipeline. Currently, there are unit tests for individual parsers, but there is no test that verifies the entire ingestion process from uploading a resume to storing the processed data. A successful fix will add an integration test using the provided sample resume fixtures so the complete workflow can be verified automatically.
+This issue requests an end-to-end integration test for the resume ingestion pipeline. While the project already includes unit tests for individual parsers, there is no test that verifies the complete workflow from uploading a resume through processing and storing the resulting data. A successful fix will add an integration test using the provided sample resume fixtures so the entire ingestion pipeline can be validated automatically.
+
+## "Is this right for me?" checklist reasoning
+
+I understand the goal of this issue and can explain what needs to be implemented in my own words. The issue description identifies the relevant file (`tests/integration/test_ingestion_pipeline.py`), which provides a clear starting point for exploring the codebase. Since I have prior experience contributing to large repositories, I am comfortable working on a Tier 2 issue. The issue has a defined scope, no listed blockers, and I believe it is realistic to complete before the Week 9 deadline.
 
 **Branch name:**
-(To be updated after creating the branch.)
+docs/18-week7-journal
 
 **Setup confirmation:**
 - [ ] App runs locally at localhost:5173
