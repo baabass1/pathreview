@@ -27,3 +27,16 @@ docs/18-week7-journal
 
 **Cohort ledger:**
 - [ ] Issue added to cohort ledger
+
+## Week 8
+
+### Reproducing Issue #18
+
+I set up the project locally and verified the current resume ingestion functionality. I ran the existing resume parser unit tests using:
+
+.venv/bin/pytest tests/unit/test_resume_parser.py -v
+
+The test suite collected 10 tests. Five tests passed and five tests failed. The failures are related to section detection and Markdown parsing, confirming that the resume ingestion pipeline still has issues and that there is currently no end-to-end integration test for resume ingestion. This matches the goal of Issue #18.
+
+PLAN.md:
+https://github.com/baabass1/pathreview/blob/docs/18-week7-journal/PLAN.md
