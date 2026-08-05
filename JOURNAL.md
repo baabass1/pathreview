@@ -1,7 +1,7 @@
 # Week 7 – Issue Selection
 
 **Issue link:**
-https://github.com/ascheri/pathreview/issues/18
+https://github.com/ascherj/pathreview/issues/18
 
 **Issue title:**
 Add end-to-end ingestion test with a sample resume fixture
@@ -13,7 +13,7 @@ Tier 2
 I selected this Tier 2 issue because I have previous experience contributing to larger codebases through CodePath projects, and I want to continue improving my testing and debugging skills. The issue has a clear description, identifies the relevant files, and has a well-defined scope, making it a realistic project to complete within the module timeline.
 
 **Problem summary:**
-This issue requests an end-to-end integration test for the resume ingestion pipeline. While the project already includes unit tests for individual parsers, there is no test that verifies the complete workflow from uploading a resume through processing and storing the resulting data. A successful fix will add an integration test using the provided sample resume fixtures so the entire ingestion pipeline can be validated automatically.
+This issue requests an end-to-end integration test for the resume ingestion pipeline. While the project already includes unit tests for individual parsers, there is no test that verifies the complete workflow from uploading a resume through processing and storing the resulting data. A successful solution will add an integration test using a sample resume fixture so the entire ingestion pipeline can be validated automatically.
 
 ## "Is this right for me?" checklist reasoning
 
@@ -23,20 +23,71 @@ I understand the goal of this issue and can explain what needs to be implemented
 docs/18-week7-journal
 
 **Setup confirmation:**
-- [ ] App runs locally at localhost:5173
+- [x] App runs locally at localhost:5173
 
 **Cohort ledger:**
-- [ ] Issue added to cohort ledger
+- [x] Issue added to cohort ledger
 
-## Week 8
+---
 
-### Reproducing Issue #18
+# Week 8
 
-I set up the project locally and verified the current resume ingestion functionality. I ran the existing resume parser unit tests using:
+## Reproducing Issue #18
 
-.venv/bin/pytest tests/unit/test_resume_parser.py -v
+I set up the project locally and verified the current resume ingestion functionality. I explored the existing resume parser, ingestion pipeline, chunking strategy, and embedding workflow to understand how the application processes resumes.
 
-The test suite collected 10 tests. Five tests passed and five tests failed. The failures are related to section detection and Markdown parsing, confirming that the resume ingestion pipeline still has issues and that there is currently no end-to-end integration test for resume ingestion. This matches the goal of Issue #18.
+I also confirmed that the repository contains unit tests for the resume parser but does not include an end-to-end integration test for the complete ingestion pipeline. This matches the goal of Issue #18.
+
+### PLAN.md
+
+I created a `PLAN.md` document outlining my approach to solving the issue. The plan includes:
+
+- Files to investigate and modify
+- Implementation steps
+- Potential risks
+- Edge cases
+- Testing strategy
 
 PLAN.md:
 https://github.com/baabass1/pathreview/blob/docs/18-week7-journal/PLAN.md
+
+---
+
+# Week 9
+
+## Implementation
+
+This week I implemented the solution for Issue #18 by adding an end-to-end integration test for the resume ingestion pipeline.
+
+### Changes made
+
+- Created a sample resume fixture:
+  - `tests/fixtures/sample_resumes/sample_resume.md`
+- Created an integration test:
+  - `tests/integration/test_ingestion_pipeline.py`
+- Verified the complete resume ingestion workflow from parsing through embedding generation and vector database storage using mocked dependencies.
+
+### Testing
+
+I tested the implementation by running:
+
+```bash
+.venv/bin/pytest tests/integration/test_ingestion_pipeline.py -v
+```
+
+The integration test completed successfully.
+
+**Result:**
+
+- 1 test collected
+- 1 test passed
+
+### Challenges
+
+The biggest challenge was understanding how the ingestion pipeline connected multiple components, including the resume parser, chunking strategy, embedding provider, and vector database. I explored each part of the pipeline before implementing the integration test.
+
+During the commit process, the repository's pre-commit hooks reported existing `mypy` errors in project files that were unrelated to my implementation. After verifying that my integration test passed successfully and confirming that the remaining errors came from existing project files, I committed and pushed my implementation to my branch.
+
+### What I learned
+
+This assignment helped me better understand the difference between unit tests and integration tests. Unit tests verify individual components, while integration tests verify that multiple components work together correctly throughout an entire workflow. I also gained more experience using mocks to isolate external dependencies while testing the overall behavior of the application.
