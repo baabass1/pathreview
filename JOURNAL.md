@@ -91,3 +91,50 @@ During the commit process, the repository's pre-commit hooks reported existing `
 ### What I learned
 
 This assignment helped me better understand the difference between unit tests and integration tests. Unit tests verify individual components, while integration tests verify that multiple components work together correctly throughout an entire workflow. I also gained more experience using mocks to isolate external dependencies while testing the overall behavior of the application.
+
+---
+
+## Week 9 – Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+
+I completed the implementation of the end-to-end resume ingestion integration test. I added a sample resume fixture in `tests/fixtures/sample_resumes/sample_resume.md` and created `tests/integration/test_ingestion_pipeline.py` to verify the complete ingestion workflow. I also confirmed that the integration test passes successfully.
+
+**Next steps:**
+
+Open a pull request, complete the PR template, update this journal with the PR link, and submit the branch URL through the course portal.
+
+**Blockers:**
+
+None.
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:**
+
+https://github.com/ascherj/pathreview/pull/963
+
+**Branch:**
+
+docs/18-week7-journal
+
+**What you built:**
+
+I added an end-to-end integration test for the resume ingestion pipeline using a sample resume fixture. The test verifies the complete workflow from resume parsing through chunking, embedding generation, vector database storage, and ingestion recording using mocked external dependencies.
+
+**Tests added or updated:**
+
+Added `tests/integration/test_ingestion_pipeline.py` to verify the complete resume ingestion pipeline using the sample fixture located in `tests/fixtures/sample_resumes/sample_resume.md`. The test confirms that resume parsing, chunking, embedding generation, vector database storage, and ingestion recording all execute successfully.
+
+**Self-review confirmation:**
+
+- [x] make check passes (no new failures introduced)
+- [x] make test-unit passes
+
+**Draft PR feedback received from:**
+
+None.
