@@ -138,3 +138,43 @@ Added `tests/integration/test_ingestion_pipeline.py` to verify the complete resu
 **Draft PR feedback received from:**
 
 None.
+
+---
+
+# Week 10 – Iteration & Reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [x] No – still awaiting review
+
+**Summary of feedback:**
+
+At the time I completed this journal entry, my pull request had not received any reviewer feedback. The pull request remains open, so there were no review comments or requested changes to document.
+
+**How you responded:**
+
+N/A
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+
+The hardest part was understanding how the resume ingestion pipeline connected multiple components instead of writing the test itself. I spent time tracing how the resume parser, chunking strategy, embedding generation, and vector database interacted before I felt confident adding the integration test. I also had to determine which external dependencies should be mocked so the test focused on verifying the pipeline rather than external services.
+
+**What did you learn about working in a large codebase?**
+
+I learned that contributing to an existing production codebase requires much more reading than writing code. Before making changes, I explored the existing parser, ingestion pipeline, and test structure to follow the project's conventions. I also learned that understanding the repository's organization and existing patterns makes implementing new features much easier and helps produce code that fits naturally with the rest of the project.
+
+**How did AI tools help — and where did they fall short?**
+
+AI was most helpful for explaining unfamiliar parts of the codebase, identifying where related functionality was implemented, and helping me understand the overall ingestion workflow. However, AI could not determine whether its suggestions matched the repository's actual architecture or testing patterns. I still needed to read the existing code, verify file locations, understand the project's design, and make implementation decisions based on the repository itself.
+
+**What would you do differently if you started over?**
+
+If I started over, I would spend more time exploring the repository before writing any code. Understanding the relationships between the parser, ingestion pipeline, embeddings, and vector database earlier would have made planning the integration test more straightforward. I would also review the existing test suite in greater detail before beginning implementation.
+
+**What are you most proud of from this module?**
+
+I am most proud that I completed an end-to-end contribution that followed a professional open source workflow from issue selection through planning, implementation, testing, pull request creation, and documentation. This project gave me practical experience working in someone else's codebase rather than only building projects from scratch. It also improved my confidence in reading unfamiliar code and contributing changes that follow an existing project's structure.
